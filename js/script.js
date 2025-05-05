@@ -16,4 +16,17 @@ const colorBg = () => {
   }
 }
 
-const copyIcon = document.querySelector('#copyIcon')
+color.addEventListener('input',colorBg);
+
+const copyIcon = document.querySelector('#copyIcon');
+
+copyIcon.addEventListener('click', () => {
+  navigator.clipboard.writeText(color.value).then(() => {
+    copyIcon.style.filter = 'drop-shadow(0 0 2px limegreen)';
+    setTimeout(() => {
+      copyIcon.style.filter = '';
+    }, 2000);
+  }).catch(err => {
+    console.error('コピーに失敗しました', err);
+  });
+});
