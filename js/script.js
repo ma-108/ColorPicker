@@ -18,3 +18,12 @@ const colorBg = () => {
 
 // カラーピッカーが変更されたら colorBg を発動させる
 color.addEventListener('input', colorBg);
+
+copyBtn.addEventListener('click', () => {
+  navigator.clipboard.writeText(color.value).then(() => {
+    copyBtn.textContent = 'コピー完了！';
+    setTimeout(() => copyBtn.textContent = 'コピー', 1500);
+  }).catch(err => {
+    console.error('コピーに失敗しました', err);
+  });
+});
