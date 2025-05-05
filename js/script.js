@@ -23,7 +23,7 @@ copyIcon.addEventListener('click', () => {
     copyIcon.src = 'check.svg'; // チェックアイコンに変更
     setTimeout(() => {
       copyIcon.src = 'copy.svg'; // 元に戻す
-    }, 1500);
+    },2000);
   }).catch(err => {
     console.error('コピーに失敗しました', err);
   });
