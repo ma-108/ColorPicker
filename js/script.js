@@ -16,13 +16,14 @@ const colorBg = () => {
   }
 }
 
-// カラーピッカーが変更されたら colorBg を発動させる
-color.addEventListener('input', colorBg);
+const copyIcon = document.querySelector('#copyIcon');
 
-copyBtn.addEventListener('click', () => {
+copyIcon.addEventListener('click', () => {
   navigator.clipboard.writeText(color.value).then(() => {
-    copyBtn.textContent = 'コピー完了！';
-    setTimeout(() => copyBtn.textContent = 'コピー', 1500);
+    copyIcon.src = 'check.svg'; // チェックアイコンに変更
+    setTimeout(() => {
+      copyIcon.src = 'copy.svg'; // 元に戻す
+    }, 1500);
   }).catch(err => {
     console.error('コピーに失敗しました', err);
   });
