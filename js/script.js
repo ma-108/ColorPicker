@@ -15,7 +15,9 @@ const colorBg = () => {
   } else {
     text.textContent = `カラーコード: ${color.value}`;
   }
-}
+};
+
+color.addEventListener('input','colorBg')
 
 copyIcon.addEventListener('click', () => {
   navigator.clipboard.writeText(color.value).then(() => {
