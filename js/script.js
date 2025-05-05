@@ -16,15 +16,4 @@ const colorBg = () => {
   }
 }
 
-const copyIcon = document.querySelector('#copyIcon');
-
-copyIcon.addEventListener('click', () => {
-  navigator.clipboard.writeText(color.value).then(() => {
-    copyIcon.src = 'check.svg'; // チェックアイコンに変更
-    setTimeout(() => {
-      copyIcon.src = 'copy.svg'; // 元に戻す
-    },2000);
-  }).catch(err => {
-    console.error('コピーに失敗しました', err);
-  });
-});
+const copyIcon = document.querySelector('#copyIcon')
