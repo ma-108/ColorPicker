@@ -1,5 +1,6 @@
 const text = document.querySelector('#colorText');
 const color = document.querySelector('#colorPicker');
+const copyIcon = document.querySelector('#copyIcon');
 
 // カラーピッカーを操作したときの一連の動作
 const colorBg = () => {
@@ -15,8 +16,6 @@ const colorBg = () => {
     text.textContent = `カラーコード: ${color.value}`;
   }
 }
-
-const copyIcon = document.querySelector('#copyIcon');
 
 copyIcon.addEventListener('click', () => {
   navigator.clipboard.writeText(color.value).then(() => {
