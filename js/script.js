@@ -17,7 +17,7 @@ const colorBg = () => {
   }
 };
 
-color.addEventListener('input','colorBg')
+color.addEventListener('input','colorBg');
 
 copyIcon.addEventListener('click', () => {
   navigator.clipboard.writeText(color.value).then(() => {
