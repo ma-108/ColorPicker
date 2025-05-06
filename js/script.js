@@ -2,23 +2,23 @@ const text = document.querySelector('#colorText');
 const color = document.querySelector('#colorPicker');
 const copyIcon = document.querySelector('#copyIcon');
 
-// カラーピッカーを操作したときの一連の動作
+// 背景色を変更し、カラーコードを表示
 const colorBg = () => {
-  // 選択した色を背景色に設定
-  document.body.style.backgroundColor = color.value;
-  
-  // カラーコードを表示
-  if (color.value === '#ffffff') {
-    text.textContent = `カラーコード: ${color.value} (white)`;
-  } else if (color.value === '#000000') {
-    text.textContent = `カラーコード: ${color.value} (black)`;
+  const selectedColor = color.value;
+  document.body.style.backgroundColor = selectedColor;
+
+  if (selectedColor === '#ffffff') {
+    text.textContent = `カラーコード: ${selectedColor} (white)`;
+  } else if (selectedColor === '#000000') {
+    text.textContent = `カラーコード: ${selectedColor} (black)`;
   } else {
-    text.textContent = `カラーコード: ${color.value}`;
+    text.textContent = `カラーコード: ${selectedColor}`;
   }
 };
 
-color.addEventListener('input','colorBg');
+color.addEventListener('input', colorBg);
 
+// コピー処理
 copyIcon.addEventListener('click', () => {
   navigator.clipboard.writeText(color.value).then(() => {
     copyIcon.src = 'check.svg'; // チェックアイコンに変更
